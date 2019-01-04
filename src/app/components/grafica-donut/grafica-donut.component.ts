@@ -10,7 +10,6 @@ export class GraficaDonutComponent implements OnInit {
   @Input() chartLabels: string[] = [];
   @Input() chartData: number[] = [];
   @Input() chartType: string = '';
-  @Input() leyenda: string = '';
 
   constructor() { }
 
