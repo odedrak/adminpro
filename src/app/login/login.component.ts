@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
       // const profile = googleUser.getBasicProfile();
       const token = googleUser.getAuthResponse().id_token;
 
-      this._usuarioService.loginGoogle(token).subscribe( correcto => this.router.navigate(['/dashboard']));
+      // this._usuarioService.loginGoogle(token).subscribe( correcto => this.router.navigate(['/dashboard']));
 
-      // Si falla al visualizarse la pantalla tras el login de google, usar redireccion manual
-      // this._usuarioService.loginGoogle(token).subscribe( correcto => window.location.href = '#/dashboard'));
+      // El template falla al redireccionar con el router. Se usará redirección manual
+      this._usuarioService.loginGoogle(token).subscribe( correcto => window.location.href = '#/dashboard');
     });
   }
 
