@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
     // Javascript nativo. Visualizar en la pagina el archivo selecionado antes de subirlo
     const reader = new FileReader();
     const urlImagenTemp = reader.readAsDataURL(archivo);
-    reader.onloadend = () => this.imagenTemp = reader.result;
+    reader.onloadend = () => this.imagenTemp = reader.result.toString();
 
   }
 
