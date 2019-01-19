@@ -49,14 +49,6 @@ export class RegisterComponent implements OnInit {
       condiciones: new FormControl(false)
     }, /* validaciones globales del formulario. opcional */{ validators: this.sonIguales('password', 'password2') });
 
-    // Precargar datos en el formulario. BORRAR!!!!
-    this.forma.setValue({
-      nombre: 'Test',
-      correo: 'asdf@asdf.com',
-      password: '123456',
-      password2: '123456',
-      condiciones: true
-    });
 
   }
 
