@@ -12,7 +12,8 @@ import {
   ModalUploadService,
   HospitalService,
   MedicoService,
-  AdminGuard
+  AdminGuard,
+  VerificaTokenGuard
 } from './service.index';
 
 
@@ -32,7 +33,8 @@ import {
     HospitalService,
     MedicoService,
     LoginGuardGuard,
-    AdminGuard
+    AdminGuard,
+    VerificaTokenGuard
   ]
 })
 export class ServiceModule { }

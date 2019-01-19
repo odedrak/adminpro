@@ -23,6 +23,25 @@ export class UsuarioService {
     this.cargarStorage();
   }
 
+  renuevaToken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+
+    return this.http.get(url).pipe(
+      map( (resp: any) => {
+        this.token = resp.token;
+        localStorage.setItem('token', this.token);
+        console.log('Token renovado');
+        return true;
+      }),
+      catchError( err => {
+        this.router.navigate(['/login']);
+        swal('No se pudo renovar token', 'No fue posible renovar token', 'error');
+        return throwError(err);
+      })
+    );
+  }
+
   estaLogueado() {
     return (this.token.length > 0) ? true : false;
   }
@@ -66,7 +85,6 @@ export class UsuarioService {
     // ES6 -> {token: token} === {token} por llamarse igual la variable y el atributo del objeto
     return this.http.post(url, {token}).pipe(
       map( (resp: any) => {
-        console.log(resp);
         this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);
         return true;
       })
